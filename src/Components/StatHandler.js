@@ -21,23 +21,6 @@ class StatHandler extends Component {
     }
   }
 
-  componentWillReceiveProps(){
-    this.setState({
-      statTypeItems: this.props.characterStats.map((statType, i) => {
-        return(
-          <StatItem
-            key = {statType}
-            statType = {statType}
-            minStatPoints = {this.props.minStatPoints}
-            statAdjustment = {this.props.statAdjustment[i]}
-            increment = {this.increment.bind(this)}
-            decrement = {this.decrement.bind(this)}
-          />
-        )}
-      )
-    })
-  }
-
   increment(stat){
     if(this.state.statPoints > 0){
       this.setState({
