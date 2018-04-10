@@ -9,7 +9,6 @@ class Stats extends Component {
   }
 
   render(){
-    console.log(this.props.statAdjustment);
     return(
       <StatHandler
         statAdjustment = {this.props.statAdjustment}

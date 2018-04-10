@@ -11,7 +11,8 @@ class StatHandler extends Component {
           <StatItem
             key = {statType}
             statType = {statType}
-            minStatPoints = {this.props.minStatPoints + this.props.statAdjustment[i]}
+            minStatPoints = {this.props.minStatPoints}
+            statAdjustment = {this.props.statAdjustment[i]}
             increment = {this.increment.bind(this)}
             decrement = {this.decrement.bind(this)}
           />
@@ -20,20 +21,21 @@ class StatHandler extends Component {
     }
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(){
     this.setState({
       statTypeItems: this.props.characterStats.map((statType, i) => {
         return(
           <StatItem
             key = {statType}
             statType = {statType}
-            minStatPoints = {this.props.minStatPoints + this.props.statAdjustment[i]}
+            minStatPoints = {this.props.minStatPoints}
+            statAdjustment = {this.props.statAdjustment[i]}
             increment = {this.increment.bind(this)}
             decrement = {this.decrement.bind(this)}
           />
-        );
-      }),
-    });
+        )}
+      )
+    })
   }
 
   increment(stat){
@@ -48,7 +50,7 @@ class StatHandler extends Component {
   }
 
   decrement(stat){
-    if(stat.state.statValue > stat.props.minStatPoints){
+    if(stat.state.statValue > this.props.minStatPoints){
       this.setState({
         statPoints: this.state.statPoints + 1
       });
@@ -59,7 +61,7 @@ class StatHandler extends Component {
   }
 
   render(){
-    console.log(this.props.statAdjustment[0] + 'stathandle');
+    console.log(this.props.statAdjustment);
     return(
       <div>
         <h3>Stats</h3>

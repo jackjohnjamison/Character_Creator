@@ -21,8 +21,9 @@ class BuildForm extends Component {
     }
   }
 
-  changeClass(classType){
-    classType = classType.target.value;
+  changeClass(e){
+    let classType = e.target.options[e.target.selectedIndex].text;
+    console.log(classType);
     switch(classType){
       case 'Warrior':
         this.setState({

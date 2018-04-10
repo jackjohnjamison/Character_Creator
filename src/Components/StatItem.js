@@ -4,7 +4,7 @@ class StatItem extends Component {
   constructor(props){
     super(props);
     this.state={
-      statValue: 0,
+      statValue: 1,
     }
   }
 
@@ -17,12 +17,13 @@ class StatItem extends Component {
   }
 
   render() {
-    console.log('hello!');
+    console.log(this.props.statAdjustment);
+    let displayStat = this.state.statValue + this.props.statAdjustment;
     return (
       <div className="stat">
         {this.props.statType}
         <button type="button" onClick={this.decrement.bind(this)}>-</button>
-        {this.state.statValue + this.props.minStatPoints}
+        {displayStat}
         <button type="button" onClick={this.increment.bind(this)}>+</button>
       </div>
     );
